@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import styles from "../styles/Main.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Input from "../components/Input";
+import Select from "../components/Select";
 
 export default function Home() {
   const URL = "https://restcountries.com/v3.1/all";
@@ -21,7 +23,10 @@ export default function Home() {
     <div>
       <Header />
       <div className={styles.container}>
-        <div className="form"></div>
+        <div className={styles.form}>
+          <Input/>
+          <Select/>
+        </div>
         <Countries countries={countries} />
       </div>
       
