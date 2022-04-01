@@ -13,3 +13,19 @@
     margin: 0;
     background-color: white;
 }
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 35px;
+}
+
+.info span{
+    margin-top: 5px;
+}
+
+.info b{
+    font-weight: 600;
+}
+

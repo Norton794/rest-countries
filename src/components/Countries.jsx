@@ -19,17 +19,21 @@ export default (props) => {
               alt={`${country.name.common} flag`}
             />
             <div style={{ padding: "0 2rem" }}>
-              <h4>{country.name.common}</h4>
+              <h3>{country.name.common}</h3>
 
-              <p>
-                <b>Population:</b> {country.population}
-              </p>
-              <p>
-                <b>Region:</b> {country.region}
-              </p>
-              <p>
-                <b>Capital:</b> {country.capital}
-              </p>
+              <div className={styles.info}>
+                <span>
+                  <b>Population:</b> {country.population}
+                </span>
+                <span>
+                  <b>Region:</b> {country.region}
+                </span>
+                <span>
+                  <b>Capital:</b> {country.capital}
+                </span>
+              </div>
+
+
             </div>
           </div>
         ))}
