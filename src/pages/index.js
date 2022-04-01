@@ -22,10 +22,18 @@ export default function Home() {
   }, [search]);
 
   function set(name) {
-    if (name === "name/") {
+    if (!name) {
       setSearch("all");
     } else {
-      setSearch(name);
+      setSearch("name/" + name);
+    }
+  }
+
+  function setRegion(name) {
+    if (!name) {
+      setSearch("all");
+    } else {
+      setSearch("region/" + name);
     }
   }
 
@@ -35,7 +43,7 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.form}>
           <Input setSearch={set} />
-          <Select />
+          <Select set={setRegion} />
         </div>
         <Countries countries={countries} />
       </div>

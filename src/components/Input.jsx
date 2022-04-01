@@ -13,7 +13,7 @@ export default (props) => {
       <input
         className={styles.input}
         placeholder="Search for a country..."
-        onChange={(e) => props.setSearch("name/" + e.target.value)}
+        onChange={(e) => props.setSearch(e.target.value)}
       />
     </div>
   );
