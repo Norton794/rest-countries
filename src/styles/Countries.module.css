@@ -1,0 +1,15 @@
+
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.body{
+    margin: 0;
+    background-color: white;
+}
