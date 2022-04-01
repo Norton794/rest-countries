@@ -1,0 +1,18 @@
+.sel {
+  width: 175px;
+  height: 50px;
+  border: none;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.15);
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sel:focus-visible{
+    outline: none;
+}
+
+.sel option{
+    cursor: pointer;
+}
