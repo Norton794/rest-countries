@@ -3,11 +3,7 @@ import { IconFind } from "./Icons";
 export default (props) => {
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
-      }}
+      className={styles.main}
     >
       <div className={styles.box}>{IconFind}</div>
       <input

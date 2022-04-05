@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Input from "../components/Input";
 import Select from "../components/Select";
+import Form from "../components/Form";
 
 export default function Home() {
   const URL = "https://restcountries.com/v3.1/";
@@ -40,12 +41,15 @@ export default function Home() {
   return (
     <div>
       <Header />
+
       <div className={styles.container}>
         <div className={styles.form}>
-          <Input setSearch={set} />
-          <Select set={setRegion} />
+          <Form set={set} setRegion={setRegion} />
         </div>
-        <Countries countries={countries} />
+
+        <div className={styles.countries}>
+          <Countries countries={countries} />
+        </div>
       </div>
     </div>
   );
