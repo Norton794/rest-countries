@@ -2,6 +2,7 @@ import styles from "../styles/Select.module.css";
 export default (props) => {
   return (
     <select
+      style={props.style ?? {}}
       className={styles.sel}
       name=""
       id=""

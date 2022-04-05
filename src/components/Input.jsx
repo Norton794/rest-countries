@@ -5,8 +5,9 @@ export default (props) => {
     <div
       className={styles.main}
     >
-      <div className={styles.box}>{IconFind}</div>
+      <div style={props.style ?? {}} className={styles.box}>{IconFind}</div>
       <input
+      style={props.style ?? {}}
         className={styles.input}
         placeholder="Search for a country..."
         onChange={(e) => props.setSearch(e.target.value)}

@@ -4,8 +4,8 @@ import styles from '../styles/Form.module.css'
 export default (props) => {
   return (
     <div className={styles.form}>
-      <Input setSearch={props.set} />
-      <Select set={props.setRegion} />
+      <Input style={props.style} setSearch={props.set} />
+      <Select style={props.style} set={props.setRegion} />
     </div>
   );
 };
