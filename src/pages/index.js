@@ -7,10 +7,9 @@ import Input from "../components/Input";
 import Select from "../components/Select";
 import Form from "../components/Form";
 
-
 const DARKSTYLE = {
   body: {
-    style: {backgroundColor: "#202C37" },
+    style: { backgroundColor: "#202C37", height: "100%" },
   },
 
   header: {
@@ -33,19 +32,18 @@ const DARKSTYLE = {
   },
 };
 
-
 const LIGHTSTYLE = {
   body: {
-    style: {backgroundColor: "white" },
+    style: { backgroundColor: "white" },
   },
 
   header: {
     style: { color: "#111517" },
-    back: {  },
+    back: {},
   },
 
   container: {
-    style: {  },
+    style: {},
   },
 
   form: {
@@ -64,9 +62,7 @@ export default function Home() {
   const [search, setSearch] = useState("all");
   const [countries, setCountries] = useState([]);
   const [isDark, setIsDark] = useState(false);
-  const [dark, setDark] = useState(LIGHTSTYLE)
-
-
+  const [dark, setDark] = useState(LIGHTSTYLE);
 
   useEffect(() => {
     axios
@@ -94,21 +90,21 @@ export default function Home() {
     }
   }
 
-  function toogleTheme(val){
-    if(val===true){
-      setDark(DARKSTYLE)
-      setIsDark(true)
-    }else{
-      setDark(LIGHTSTYLE)
-      setIsDark(false)
+  function toogleTheme(val) {
+    if (val === true) {
+      setDark(DARKSTYLE);
+      setIsDark(true);
+    } else {
+      setDark(LIGHTSTYLE);
+      setIsDark(false);
     }
   }
 
   return (
     <div {...dark.body}>
-      <Header {...dark.header} toogle={toogleTheme} isDark={isDark}/>
+      <Header {...dark.header} toogle={toogleTheme} isDark={isDark} />
       <div {...dark.container} className={styles.container}>
-        <div  className={styles.form}>
+        <div className={styles.form}>
           <Form {...dark.form} set={set} setRegion={setRegion} />
         </div>
         <div className={styles.countries}>

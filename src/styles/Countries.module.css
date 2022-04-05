@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 70px;
 }
 
 .main {
@@ -35,7 +36,7 @@
 @media (max-width: 400px) {
   .grid {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex: 1;
