@@ -65,9 +65,6 @@ export function getLanguages(languages = {}) {
 }
 
 export function getCurrencies(currencies) {
-  // let val = Object.values(currencies) || null;
-  // console.log(val?.map((v) => v.name));
-  //return Object.values(currencies)?.map((v) => v.name + ", ")
   if (typeof currencies === "object") {
     return Object.values(currencies)
       ?.map((v) => v.name + "")
