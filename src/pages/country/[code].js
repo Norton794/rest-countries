@@ -1,16 +1,16 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../../components/Header";
-import styles from "../../styles/Main.module.css";
+import styles from "../../styles/Country.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IconLeftArrow } from "../../components/Icons";
 const Country = () => {
   const router = useRouter();
-  const { code } = router.query;
-  const URL = "https://restcountries.com/v3.1/alpha/";
+  let { code } = router.query;
+  const URL = "https://restcountries.com/v3.1/alpha";
   const [countries, setCountries] = useState([]);
-  let comp = URL + code;
+  const comp = URL + "/" + code;
   useEffect(() => {
     axios
       .get(`${comp}`)
@@ -19,7 +19,30 @@ const Country = () => {
         setCountries(resp.data[0]);
       })
       .catch((err) => console.log("Error", err));
-  }, []);
+  }, [code]);
+
+  function getLanguages(languages = {}) {
+    let str = [];
+    if (Object.values(languages).length > 1) {
+      for (let i = 0; i < Object.values(languages).length; i++) {
+        str.push(Object.values(languages)[i]);
+      }
+      return str.join(", ");
+    } else {
+      return Object.values(languages);
+    }
+  }
+
+  function getCurrencies(currencies) {
+    // let val = Object.values(currencies) || null;
+    // console.log(val?.map((v) => v.name));
+    //return Object.values(currencies)?.map((v) => v.name + ", ")
+    if (typeof currencies === "object") {
+      return Object.values(currencies)
+        ?.map((v) => v.name + "")
+        .join(", ");
+    }
+  }
 
   return (
     <div>
@@ -36,7 +59,7 @@ const Country = () => {
             <a
               style={{
                 boxShadow: "0px 3px 7px 0px rgba(0, 0, 0, 0.15)",
-                padding: '0 1rem',
+                padding: "0 1rem",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -45,7 +68,15 @@ const Country = () => {
                 height: "35px",
               }}
             >
-              <span style={{ width: "22px", height: "auto", display: "block", marginTop: '5px', marginRight: '5px' }}>
+              <span
+                style={{
+                  width: "22px",
+                  height: "auto",
+                  display: "block",
+                  marginTop: "5px",
+                  marginRight: "5px",
+                }}
+              >
                 {IconLeftArrow}{" "}
               </span>
               Back
@@ -59,29 +90,19 @@ const Country = () => {
             justifyContent: "flex-start",
             width: "100%",
             paddingLeft: " 5rem",
-            paddingRight: "5rem",
+            paddingRight: "2rem",
             paddingTop: "3rem",
           }}
         >
           <div className={styles.flag}>
             <img
-              style={{ width: "450px", height: "auto" }}
               src={countries.flags && countries.flags.png}
               alt={` ${countries.name && countries.name.common} flag`}
             ></img>
           </div>
-          <div
-            style={{ marginLeft: "5rem", marginTop: "1rem" }}
-            className={styles.info}
-          >
+          <div className={styles.info}>
             <h3>{countries.name && countries.name.common}</h3>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                width: "100%",
-              }}
-            >
+            <div className={styles.list}>
               <div className={styles.first}>
                 <span>
                   <b>Native Name: </b>
@@ -110,18 +131,25 @@ const Country = () => {
                   {countries.tld}
                 </span>
                 <span>
-                  <b>Currencies:</b>
-                  {/* {countries.currencies} */}
+                  <b>Currencies: </b>
+                  {getCurrencies(countries.currencies)}
                 </span>
                 <span>
-                  <b>Languages:</b>
-                  {/* {Object.values(countries.languages)} */}
+                  <b>Languages: </b>
+                  {getLanguages(countries.languages)}
                 </span>
               </div>
             </div>
             <div style={{ marginTop: "2rem" }}>
               <span>
-                <b> Border Countries:</b>
+                <b> Border Countries: </b>
+                <div className={styles.borders}>
+                  {countries.borders?.map((b) => (
+                    <Link href={`/country/${b.toLowerCase()}`}>
+                      <a className={styles.border}>{b.toLowerCase()}</a>
+                    </Link>
+                  ))}
+                </div>
               </span>
             </div>
           </div>

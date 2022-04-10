@@ -8,7 +8,7 @@ export default (props) => {
       id=""
       onChange={(e) => props.set(e.target.value)}
     >
-      <option value="" selected>
+      <option value="" defaultValue>
         Filter by Region
       </option>
       <option value="Africa">Africa</option>
