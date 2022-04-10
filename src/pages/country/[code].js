@@ -5,12 +5,14 @@ import styles from "../../styles/Country.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IconLeftArrow } from "../../components/Icons";
+import { URL_ALPHA, getLanguages, getCurrencies } from "../../utils/index"
+
 const Country = () => {
   const router = useRouter();
   let { code } = router.query;
-  const URL = "https://restcountries.com/v3.1/alpha";
+
   const [countries, setCountries] = useState([]);
-  const comp = URL + "/" + code;
+  const comp = URL_ALPHA + "/" + code;
   useEffect(() => {
     axios
       .get(`${comp}`)
@@ -20,29 +22,6 @@ const Country = () => {
       })
       .catch((err) => console.log("Error", err));
   }, [code]);
-
-  function getLanguages(languages = {}) {
-    let str = [];
-    if (Object.values(languages).length > 1) {
-      for (let i = 0; i < Object.values(languages).length; i++) {
-        str.push(Object.values(languages)[i]);
-      }
-      return str.join(", ");
-    } else {
-      return Object.values(languages);
-    }
-  }
-
-  function getCurrencies(currencies) {
-    // let val = Object.values(currencies) || null;
-    // console.log(val?.map((v) => v.name));
-    //return Object.values(currencies)?.map((v) => v.name + ", ")
-    if (typeof currencies === "object") {
-      return Object.values(currencies)
-        ?.map((v) => v.name + "")
-        .join(", ");
-    }
-  }
 
   return (
     <div>
