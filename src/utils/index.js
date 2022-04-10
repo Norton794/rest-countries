@@ -48,6 +48,57 @@ export const LIGHTSTYLE = {
   },
 };
 
+
+export const DARKCOUNTRY = {
+    body: {
+      style: { backgroundColor: "#202C37", height: "100%" },
+    },
+    header: {
+      style: { color: "white" },
+      back: { backgroundColor: "#2B3945" },
+    },
+    container: {
+      style: { backgroundColor: "#202C37" },
+    },
+    btn: {
+      style: { color: "white", backgroundColor: "#2B3945" },
+    },
+    b: {
+      style: { color: "white" },
+    },
+    span: {
+      style: { color: "#fafafa" },
+    },
+    h3: {
+      style: { color: "white" },
+    },
+  };
+  
+  export const LIGHTCOUNTRY = {
+    body: {
+      style: { backgroundColor: "white", height: "100%" },
+    },
+    header: {
+      style: { color: "#111517" },
+      back: {  },
+    },
+    container: {
+      style: {  },
+    },
+    btn: {
+      style: { color: "#111517", backgroundColor: "white" },
+    },
+    b: {
+      style: { color: "#111517" },
+    },
+    span: {
+      style: { color: "#000" },
+    },
+    h3: {
+      style: { color: "#111517" },
+    },
+  };
+
 export const URL = "https://restcountries.com/v3.1/";
 
 export const URL_ALPHA = "https://restcountries.com/v3.1/alpha";

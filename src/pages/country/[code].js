@@ -5,57 +5,7 @@ import styles from "../../styles/Country.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IconLeftArrow } from "../../components/Icons";
-import { URL_ALPHA, getLanguages, getCurrencies } from "../../utils/index";
-
-const DARKCOUNTRY = {
-  body: {
-    style: { backgroundColor: "#202C37", height: "100%" },
-  },
-  header: {
-    style: { color: "white" },
-    back: { backgroundColor: "#2B3945" },
-  },
-  container: {
-    style: { backgroundColor: "#202C37" },
-  },
-  btn: {
-    style: { color: "white", backgroundColor: "#2B3945" },
-  },
-  b: {
-    style: { color: "white" },
-  },
-  span: {
-    style: { color: "#fafafa" },
-  },
-  h3: {
-    style: { color: "white" },
-  },
-};
-
-const LIGHTCOUNTRY = {
-  body: {
-    style: { backgroundColor: "white", height: "100%" },
-  },
-  header: {
-    style: { color: "#111517" },
-    back: {  },
-  },
-  container: {
-    style: {  },
-  },
-  btn: {
-    style: { color: "#111517", backgroundColor: "white" },
-  },
-  b: {
-    style: { color: "#111517" },
-  },
-  span: {
-    style: { color: "#000" },
-  },
-  h3: {
-    style: { color: "#111517" },
-  },
-};
+import { URL_ALPHA, getLanguages, getCurrencies, DARKCOUNTRY, LIGHTCOUNTRY } from "../../utils/index";
 
 const Country = () => {
   const router = useRouter();
@@ -90,11 +40,8 @@ const Country = () => {
       <Header {...dark.header} toogle={toogleTheme} isDark={isDark} />
       <div {...dark.container} className={styles.container}>
         <div
-          style={{
-            marginTop: "3rem",
-            paddingLeft: " 5rem",
-            paddingRight: "5rem",
-          }}
+        className={styles.link}
+          
         >
           <Link href="/">
             <a {...dark.btn} className={styles.backBtn}>
@@ -105,14 +52,7 @@ const Country = () => {
         </div>
 
         <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            width: "100%",
-            paddingLeft: " 5rem",
-            paddingRight: "2rem",
-            paddingTop: "3rem",
-          }}
+        className={styles.main}
         >
           <div className={styles.flag}>
             <img
