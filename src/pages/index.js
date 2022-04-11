@@ -4,21 +4,23 @@ import styles from "../styles/Main.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Form from "../components/Form";
+
 import {LIGHTSTYLE, DARKSTYLE, URL} from '../utils/index'
 
 
-export default function Home() {
+function Home(props) {
+
   
   const [search, setSearch] = useState("all");
   const [countries, setCountries] = useState([]);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(props.dark);
   const [dark, setDark] = useState(LIGHTSTYLE);
 
   useEffect(() => {
     axios
       .get(`${URL}${search}`)
       .then((resp) => {
-        //console.log(JSON.stringify(resp.data[0]))
+        
         setCountries(resp.data);
       })
       .catch((err) => console.log("Error", err));
@@ -41,13 +43,15 @@ export default function Home() {
   }
 
   function toogleTheme(val) {
+    console.log(val)
     if (val === true) {
       setDark(DARKSTYLE);
-      setIsDark(true);
+      setIsDark(true)
     } else {
       setDark(LIGHTSTYLE);
-      setIsDark(false);
+      setIsDark(false)
     }
+    
   }
 
   return (
@@ -64,3 +68,8 @@ export default function Home() {
     </div>
   );
 }
+
+
+
+
+export default Home

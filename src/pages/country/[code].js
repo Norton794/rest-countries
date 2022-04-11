@@ -7,12 +7,12 @@ import { useState, useEffect } from "react";
 import { IconLeftArrow } from "../../components/Icons";
 import { URL_ALPHA, getLanguages, getCurrencies, DARKCOUNTRY, LIGHTCOUNTRY } from "../../utils/index";
 
-const Country = () => {
+const Country = (props) => {
   const router = useRouter();
   let { code } = router.query;
 
   const [countries, setCountries] = useState([]);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(props.dark);
   const [dark, setDark] = useState(LIGHTCOUNTRY);
   const comp = URL_ALPHA + "/" + code;
   useEffect(() => {
@@ -26,13 +26,15 @@ const Country = () => {
   }, [code]);
 
   function toogleTheme(val) {
+    console.log(val)
     if (val === true) {
       setDark(DARKCOUNTRY);
-      setIsDark(true);
+      setIsDark(true)
     } else {
       setDark(LIGHTCOUNTRY);
-      setIsDark(false);
+      setIsDark(false)
     }
+    
   }
 
   return (
@@ -124,5 +126,7 @@ const Country = () => {
     </div>
   );
 };
+
+
 
 export default Country;
