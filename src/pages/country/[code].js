@@ -14,7 +14,7 @@ const Country = (props) => {
   const [countries, setCountries] = useState([]);
   const [isDark, setIsDark] = useState(props.dark);
   const [dark, setDark] = useState(LIGHTCOUNTRY);
-  const comp = URL_ALPHA + "/" + code;
+  let comp = URL_ALPHA + "/" + code;
   useEffect(() => {
     axios
       .get(`${comp}`)
@@ -23,7 +23,7 @@ const Country = (props) => {
         setCountries(resp.data[0]);
       })
       .catch((err) => console.log("Error", err));
-  }, [code]);
+  }, [code, comp]);
 
   function toogleTheme(val) {
     console.log(val)
@@ -111,7 +111,7 @@ const Country = (props) => {
                 <b {...dark.b}> Border Countries: </b>
                 <div className={styles.borders}>
                   {countries.borders?.map((b) => (
-                    <Link href={`/country/${b.toLowerCase()}`}>
+                    <Link key={b.toLowerCase()} href={`/country/${b.toLowerCase()}`}>
                       <a {...dark.btn} className={styles.border}>
                         {b.toLowerCase()}
                       </a>

@@ -1,11 +1,11 @@
 import styles from "../styles/Countries.module.css";
 import Link from "next/link";
-export default (props) => {
+export default function Countries(props) {
   return (
     <div className={styles.grid}>
       {props.countries &&
         props.countries.map((country) => (
-          <Link href={`/country/${country.ccn3}`}>
+          <Link key={country.ccn3} href={`/country/${country.ccn3}`}>
             <a>
               <div
               style={props.style}

@@ -1,6 +1,6 @@
 import styles from "../styles/Input.module.css";
 import { IconFind } from "./Icons";
-export default (props) => {
+export default function Input(props) {
   return (
     <div
       className={styles.main}

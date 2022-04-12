@@ -1,5 +1,5 @@
 import styles from "../styles/Select.module.css";
-export default (props) => {
+export default function Select(props) {
   return (
     <select
       style={props.style ?? {}}

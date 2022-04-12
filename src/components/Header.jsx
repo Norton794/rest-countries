@@ -2,7 +2,7 @@ import { DarkMode } from "./Icons";
 import styles from '../styles/Header.module.css'
 
 
-export default (props) => {
+export default function Header(props){
   const {style, back} = props
   const NEW_STYLE = {
 ...style,
