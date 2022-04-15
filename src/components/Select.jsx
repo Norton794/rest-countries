@@ -3,7 +3,7 @@ export default function Select(props) {
   return (
     <select
     role="select"
-    aria-label="Regions"
+    aria-label="select"
       style={props.style ?? {}}
       className={styles.sel}
       name="select"
