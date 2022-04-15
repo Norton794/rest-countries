@@ -2,6 +2,8 @@ import styles from "../styles/Select.module.css";
 export default function Select(props) {
   return (
     <select
+    role="select"
+    aria-label="Regions"
       style={props.style ?? {}}
       className={styles.sel}
       name=""
@@ -9,7 +11,7 @@ export default function Select(props) {
       onChange={(e) => props.set(e.target.value)}
     >
       <option value="" defaultValue>
-        Filter by Region
+        All Regions
       </option>
       <option value="Africa">Africa</option>
       <option value="Americas">Americas</option>
