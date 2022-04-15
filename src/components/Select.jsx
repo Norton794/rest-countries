@@ -6,8 +6,8 @@ export default function Select(props) {
     aria-label="Regions"
       style={props.style ?? {}}
       className={styles.sel}
-      name=""
-      id=""
+      name="select"
+      id="select"
       onChange={(e) => props.set(e.target.value)}
     >
       <option value="" defaultValue>
